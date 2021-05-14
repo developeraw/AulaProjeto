@@ -4,7 +4,7 @@
  * Data_______: 14/05/2021
  * Dicas______: Lembrar de colocar o arquivo jar do conector JDBC junto ao projeto
  *              ou no caso do NetBeans -> clique direto sobre bibliotecas, adicionar
- *              postgres, mysql ... 
+ *              postgres, mysql ... testando
  */
 package aulaprojeto;
 
