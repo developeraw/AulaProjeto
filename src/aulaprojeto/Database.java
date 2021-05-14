@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Autor______: Alexandre Stürmer Wolf
+ * Utilidade__: Demostrar o processo de conexão com o banco de dados
+ * Data_______: 14/05/2021
+ * Dicas______: Lembrar de colocar o arquivo jar do conector JDBC junto ao projeto
+ *              ou no caso do NetBeans -> clique direto sobre bibliotecas, adicionar
+ *              postgres, mysql ...
  */
 package aulaprojeto;
 
