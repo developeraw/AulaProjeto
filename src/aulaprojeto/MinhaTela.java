@@ -144,16 +144,32 @@ public class MinhaTela extends javax.swing.JFrame {
                 Connection conexao = data.getConexao();
                 Statement st = conexao.createStatement();
 
-                ResultSet rs = st.executeQuery(tfConsultaSQL.getText());
-                while (rs.next()) {
-                    System.out.println(rs.getString(1));
-                }
+                if (tfConsultaSQL.getText().toUpperCase().startsWith("SELECT")) {
 
+                    ResultSet rs = st.executeQuery(tfConsultaSQL.getText());
+                    Vector cabecalho = new Vector();
+
+                    for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                        cabecalho.add(rs.getMetaData().getColumnName(i));
+                    }
+
+                    Vector linhas = new Vector();
+                    while (rs.next()) {
+                        Vector colunas = new Vector();
+                        for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                            colunas.add(rs.getString(i));
+                        }
+                        linhas.add(new Vector(colunas));
+                    }
+                    tbDadosConsulta.setModel(new DefaultTableModel(linhas, cabecalho));
+                    
+                } else {
+                    st.execute(tfConsultaSQL.getText());
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
 
     }//GEN-LAST:event_btConsultarActionPerformed
 
