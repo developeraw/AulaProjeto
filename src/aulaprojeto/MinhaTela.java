@@ -28,11 +28,17 @@ public class MinhaTela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFileChooser1 = new javax.swing.JFileChooser();
         tfConsultaSQL = new javax.swing.JTextField();
         spDadosConsulta = new javax.swing.JScrollPane();
         tbDadosConsulta = new javax.swing.JTable();
         btConsultar = new javax.swing.JButton();
         btFechar = new javax.swing.JButton();
+        mbMenu = new javax.swing.JMenuBar();
+        mmFile = new javax.swing.JMenu();
+        miTelaCadastro = new javax.swing.JMenuItem();
+        miCadastroBanco = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultador SQL");
@@ -67,6 +73,31 @@ public class MinhaTela extends javax.swing.JFrame {
             }
         });
 
+        mmFile.setText("File");
+
+        miTelaCadastro.setText("Tela Simula Cadastro Simples ");
+        miTelaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miTelaCadastroActionPerformed(evt);
+            }
+        });
+        mmFile.add(miTelaCadastro);
+
+        miCadastroBanco.setText("TelaCadastroBanco");
+        miCadastroBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadastroBancoActionPerformed(evt);
+            }
+        });
+        mmFile.add(miCadastroBanco);
+
+        mbMenu.add(mmFile);
+
+        jMenu2.setText("Edit");
+        mbMenu.add(jMenu2);
+
+        setJMenuBar(mbMenu);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,7 +109,7 @@ public class MinhaTela extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btFechar))
-            .addComponent(spDadosConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+            .addComponent(spDadosConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,7 +118,7 @@ public class MinhaTela extends javax.swing.JFrame {
                     .addComponent(tfConsultaSQL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btConsultar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spDadosConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+                .addComponent(spDadosConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btFechar))
         );
@@ -173,9 +204,24 @@ public class MinhaTela extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btConsultarActionPerformed
 
+    private void miTelaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miTelaCadastroActionPerformed
+        TelaSimulaCadastro tela = new TelaSimulaCadastro();
+        tela.setVisible(true);
+    }//GEN-LAST:event_miTelaCadastroActionPerformed
+
+    private void miCadastroBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastroBancoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miCadastroBancoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btConsultar;
     private javax.swing.JButton btFechar;
+    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar mbMenu;
+    private javax.swing.JMenuItem miCadastroBanco;
+    private javax.swing.JMenuItem miTelaCadastro;
+    private javax.swing.JMenu mmFile;
     private javax.swing.JScrollPane spDadosConsulta;
     private javax.swing.JTable tbDadosConsulta;
     private javax.swing.JTextField tfConsultaSQL;

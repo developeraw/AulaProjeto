@@ -17,8 +17,12 @@ import java.sql.*;
 public class Database {
 
     private static Connection conexao = null;
+    
+    public Database() {
+        
+    }
 
-    public static boolean conecta() {
+    public boolean conecta() {
         // ============== Exemplo com postgres ==========================
         String nomeDriver = "org.postgresql.Driver";
         String localBancoDados = "jdbc:postgresql://localhost:5432/postgres";
@@ -33,6 +37,7 @@ public class Database {
         try {
 
             Class.forName(nomeDriver).newInstance();
+
             conexao = DriverManager.getConnection(localBancoDados, usuario, senha);
 
         } catch (Exception e) {
@@ -42,26 +47,39 @@ public class Database {
         return conexao != null;
 
     }
+    
+    public Connection getConexao() {
+        return conexao;
+    }
 
     public static void main(String[] args) {
+        
+        Database data = new Database();
+        
         try {
 
-            if (conecta()) {
+            if (data.conecta()) {
+
                 Statement st = conexao.createStatement();
+
                 ResultSet rs = st.executeQuery("SELECT * FROM usuarios");
                 
+                //st.execute("UPDATE usuarios SET nome ='Juruna' WHERE codigo = 3")
+                
                 System.out.println();
+                
                 for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    System.out.print(rs.getMetaData().getColumnName(i) + "(" + rs.getMetaData().getColumnClassName(i) + ")   ");
+                    System.out.print(rs.getMetaData().getColumnName(i) + "(" + rs.getMetaData().getColumnTypeName(i) + ")   ");
                 }
+                
                 System.out.println();
-                while(rs.next()){
-                    System.out.println(rs.getString(1) + "  " + rs.getString("nome"));
+                while (rs.next()) {
+                    System.out.println(rs.getString(1) + "  " + rs.getString("nome") + "   " + rs.getString(3));
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-   
+
 }
